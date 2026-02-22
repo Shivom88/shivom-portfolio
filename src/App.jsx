@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
@@ -23,8 +23,8 @@ const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
   // Show loading spinner while checking app public settings or auth
-  if (isLoadingPublicSettings || isLoadingAuth) {
-  return <LoadingScreen />;
+if (isLoadingPublicSettings || isLoadingAuth) {
+  return null; // or a simple spinner component
 }
 
   // Handle authentication errors
