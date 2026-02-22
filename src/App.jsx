@@ -22,9 +22,8 @@ const LayoutWrapper = ({ children, currentPageName }) => Layout ?
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
-  // Show loading spinner while checking app public settings or auth
 if (isLoadingPublicSettings || isLoadingAuth) {
-  return null; // or a simple spinner component
+  return null;
 }
 
   // Handle authentication errors
@@ -64,24 +63,26 @@ if (isLoadingPublicSettings || isLoadingAuth) {
 
 
 function App() {
-  const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(true);
 
-  return (
-    <>
-      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+return (
+  <>
+    {loading && (
+      <LoadingScreen onComplete={() => setLoading(false)} />
+    )}
 
-      {!loading && (
-        <AuthProvider>
-          <QueryClientProvider client={queryClientInstance}>
-            <Router>
-              <NavigationTracker />
-              <AuthenticatedApp />
-            </Router>
-            <Toaster />
-          </QueryClientProvider>
-        </AuthProvider>
-      )}
-    </>
-  );
+    {!loading && (
+      <AuthProvider>
+        <QueryClientProvider client={queryClientInstance}>
+          <Router>
+            <NavigationTracker />
+            <AuthenticatedApp />
+          </Router>
+          <Toaster />
+        </QueryClientProvider>
+      </AuthProvider>
+    )}
+  </>
+);
 }
 export default App
