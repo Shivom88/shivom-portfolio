@@ -83,7 +83,7 @@ export default function HeroSection() {
             className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-indigo-500/25 transition-all duration-300 hover:shadow-indigo-500/40 hover:scale-105"
           >
             <Briefcase className="w-5 h-5 mr-2" />
-            View Projects
+            View All Projects
           </Button>
           <Button
   asChild
