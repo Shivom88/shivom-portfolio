@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, MapPin, Github, Linkedin, Twitter, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
