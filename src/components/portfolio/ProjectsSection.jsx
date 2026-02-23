@@ -1,160 +1,107 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import SectionHeader from './SectionHeader';
 
-export default function ProjectsSection() {
-  const projects = [
-    {
-      title: 'Smart Attendance System',
-      description: 'ML-based facial recognition system for automated attendance tracking with real-time notifications and analytics dashboard.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop',
-      tech: ['Python', 'OpenCV', 'Flask', 'MySQL'],
-      github: '#',
-      demo: '#',
-      featured: true,
-    },
-    {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack web application with user authentication, product management, shopping cart, and payment integration.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-      tech: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
-      github: '#',
-      demo: '#',
-      featured: true,
-    },
-    {
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates, kanban boards, and team collaboration features.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop',
-      tech: ['Python', 'Django', 'JavaScript', 'SQLite'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'Interactive weather application with location-based forecasts, historical data visualization, and alerts.',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop',
-      tech: ['JavaScript', 'API', 'HTML/CSS', 'Chart.js'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Student Portal System',
-      description: 'Comprehensive academic management system with course registration, grade tracking, and communication tools.',
-      image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop',
-      tech: ['Java', 'MySQL', 'JSP', 'Bootstrap'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Chat Application',
-      description: 'Real-time messaging platform with group chats, file sharing, and end-to-end encryption.',
-      image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=600&h=400&fit=crop',
-      tech: ['Python', 'WebSocket', 'Redis', 'MongoDB'],
-      github: '#',
-      demo: '#',
-    },
-  ];
+const projects = [
+  {
+    title: 'AI Chat Assistant',
+    description: 'An intelligent chatbot powered by machine learning, capable of natural language understanding and contextual responses.',
+    tags: ['Python', 'NLP', 'Machine Learning'],
+    color: '#00d4ff',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'E-Commerce Platform',
+    description: 'A full-stack web application with modern UI, payment integration, and real-time inventory management.',
+    tags: ['Java', 'Web Design', 'Database'],
+    color: '#7c3aed',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Portfolio Dashboard',
+    description: 'Interactive data visualization dashboard with real-time analytics and responsive design.',
+    tags: ['Web Design', 'JavaScript', 'API'],
+    color: '#ec4899',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Mobile Fitness App',
+    description: 'Cross-platform fitness tracking application with workout plans, progress tracking, and social features.',
+    tags: ['App Design', 'Java', 'UI/UX'],
+    color: '#10b981',
+    image: 'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?w=600&h=400&fit=crop',
+  },
+];
 
+function ProjectCard({ project, index }) {
   return (
-    <section id="projects" className="py-24 px-6 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-indigo-400 text-sm font-semibold uppercase tracking-widest">Portfolio</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">Featured Projects</h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            A collection of projects showcasing my skills in software development, web design, and problem-solving.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group relative bg-slate-900/50 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-800/50 hover:border-indigo-500/50 transition-all duration-500 ${
-                project.featured ? 'md:col-span-1' : ''
-              }`}
-            >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Quick Actions */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  <a
-                    href={project.github}
-                    className="p-2 bg-slate-900/80 backdrop-blur-sm rounded-lg text-white hover:bg-indigo-600 transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="p-2 bg-slate-900/80 backdrop-blur-sm rounded-lg text-white hover:bg-indigo-600 transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-
-                {project.featured && (
-                  <span className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-xs font-medium text-white">
-                    Featured
-                  </span>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-indigo-400 transition-colors flex items-center gap-2">
-                  {project.title}
-                  <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h3>
-                <p className="text-slate-400 text-sm mb-4 line-clamp-2">{project.description}</p>
-                
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-slate-800/50 border border-slate-700/50 rounded-md text-xs text-slate-400"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+    <motion.div
+      className="group relative"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.7, delay: index * 0.15 }}
+    >
+      <div className="glass-card glow-border rounded-2xl overflow-hidden transition-all duration-500 group-hover:translate-y-[-8px] group-hover:shadow-[0_20px_60px_rgba(0,212,255,0.15)]">
+        {/* Image */}
+        <div className="relative h-48 overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] via-transparent to-transparent" />
+          <div
+            className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-sm border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0"
+          >
+            <ArrowUpRight className="w-4 h-4 text-white" />
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          
-        </motion.div>
+        {/* Content */}
+        <div className="p-6">
+          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+            {project.title}
+          </h3>
+          <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            {project.description}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1 rounded-full text-xs font-medium border transition-colors duration-300"
+                style={{
+                  borderColor: `${project.color}33`,
+                  color: project.color,
+                  background: `${project.color}10`,
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function ProjectsSection() {
+  return (
+    <section id="projects" className="relative py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeader
+          label="// PROJECTS"
+          title="Featured Work"
+          subtitle="A selection of projects that showcase my skills and creativity"
+        />
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, i) => (
+            <ProjectCard key={project.title} project={project} index={i} />
+          ))}
+        </div>
       </div>
     </section>
   );
