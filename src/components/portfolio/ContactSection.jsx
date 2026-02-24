@@ -76,7 +76,7 @@ function ContactIcon3D({ color, iconType }) {
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
-  const email = 'shivom.mishra@gmail.com';
+  const email = 'shivom19072005@gmail.com';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
