@@ -91,7 +91,7 @@ export default function ContactSection() {
       label: 'Gmail',
       value: email,
       color: '#ea4335',
-      href: `mailto:${email}`,
+      href: `mailto:shivom19072005@gmail.com`,
       action: 'Open Mail',
     },
     {
@@ -100,7 +100,7 @@ export default function ContactSection() {
       label: 'GitHub',
       value: 'github.com/shivom-mishra',
       color: '#ffffff',
-      href: 'https://github.com/',
+      href: 'https://github.com/Shivom88',
       action: 'Visit Profile',
     },
     {
@@ -109,7 +109,7 @@ export default function ContactSection() {
       label: 'LinkedIn',
       value: 'linkedin.com/in/shivom-mishra',
       color: '#0a66c2',
-      href: 'https://linkedin.com/',
+      href: 'https://www.linkedin.com/in/shivom-mishra-b745882a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       action: 'Connect',
     },
   ];
