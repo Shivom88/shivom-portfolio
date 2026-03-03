@@ -1,3 +1,4 @@
+import ProjectDetails from "@/pages/ProjectDetails"; // ✅ NEW
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
@@ -58,6 +59,16 @@ const AuthenticatedApp = () => {
           }
         />
       ))}
+
+      {/* ✅ Project details route */}
+  <Route
+    path="/projects/:id"
+    element={
+      <LayoutWrapper currentPageName="projects">
+        <ProjectDetails />
+      </LayoutWrapper>
+    }
+  />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
